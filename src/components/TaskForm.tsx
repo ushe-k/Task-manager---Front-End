@@ -1,5 +1,5 @@
 import { useEffect, useState, type SyntheticEvent } from 'react'
-import type { TaskType } from '../libs/types';
+import type { TaskType, CreateTask } from '../libs/types';
 
 const STATUS_OPTIONS = [
   { value: 'todo', label: 'To Do' },
@@ -8,7 +8,7 @@ const STATUS_OPTIONS = [
 ];
 
 interface Props{
-  onSave : (task:TaskType) => Promise<void>
+  onSave : (task:CreateTask) => Promise<void>
   initialTask: TaskType | null
   onCancel: () => void;
 }
