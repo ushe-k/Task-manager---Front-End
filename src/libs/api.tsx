@@ -1,7 +1,7 @@
 import axios from "axios"
 import type { TaskType } from "./types"
 
-const BASE_URL = "http://127.0.0.1:8000/api"
+const BASE_URL = "https://task-manager-back-end-i27f.onrender.com/api"
 
 // Create a reusable axios instance
 const api = axios.create({
