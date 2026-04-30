@@ -5,9 +5,8 @@ import type { TaskType } from "../libs/types";
 interface TaskContextType {
     loading: boolean;
     tasks: TaskType[];
-    setTasks: React.Dispatch<React.SetStateAction<TaskType[]>>;
     selectedTask: TaskType | null;
-    setSelectedTask: React.Dispatch<React.SetStateAction<TaskType | null>>;
+
     loadTasks: () => Promise<void>;
     handleSaveTask: (taskData: TaskType) => Promise<void>;
     handleEditTask: (task: TaskType) => void;
@@ -44,13 +43,13 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
         }
     };
 
-    const handleSaveTask = async (taskData: TaskType) => {
+    const handleSaveTask = async (taskData: TaskType | TaskType) => {
         try {
-            if (!selectedTask) {
-                await createTask(taskData); // ✅ fixed
-            } else {
-                await updateTask(selectedTask.id, taskData); 
+            if ("id" in tasks) {
+                await updateTask(selectedTask!.id, taskData); 
                 setSelectedTask(null);
+            } else {
+                await createTask(taskData);
             }
         } catch (error) {
             console.error(error);
@@ -65,7 +64,7 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
 
     const handleDeleteTask = async (taskId: number) => {
         try {
-            await deleteTask(taskId); // ✅ fixed
+            await deleteTask(taskId); 
         } catch (error) {
             console.error("failed to delete task", error);
         }
@@ -78,9 +77,7 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
             value={{
                 loading,
                 tasks,
-                setTasks,
                 selectedTask,
-                setSelectedTask,
                 loadTasks,
                 handleSaveTask,
                 handleEditTask,

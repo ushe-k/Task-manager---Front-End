@@ -6,7 +6,8 @@ export interface TaskType{
 }
 
 export type CreateTask = {
-  description: string
-  due_date: string
-  status: string
+    id?: number
+    description: string
+    due_date: string
+    status: string
 }

@@ -3,7 +3,7 @@ import type { TaskType } from "../libs/types"
 type TaskListProps = {
   tasks: TaskType[]
   onEdit: (task: TaskType) => void
-  onDelete: (id: string | number) => void
+  onDelete: (id: number) => Promise<void>
 }
 
 export default function TaskList({tasks, onEdit, onDelete}: TaskListProps) {

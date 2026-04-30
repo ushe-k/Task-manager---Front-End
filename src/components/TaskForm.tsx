@@ -8,7 +8,7 @@ const STATUS_OPTIONS = [
 ];
 
 interface Props{
-  onSave : (task:CreateTask) => Promise<void>
+  onSave : (task: CreateTask) => Promise<void>
   initialTask: TaskType | null
   onCancel: () => void;
 }
@@ -32,7 +32,7 @@ export default function TaskForm({ onSave, initialTask, onCancel }: Props) {
 
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault()
-     await onSave({ description, due_date, status })
+     await onSave({description, due_date, status })
   }
 
   return (

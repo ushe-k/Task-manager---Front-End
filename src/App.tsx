@@ -46,13 +46,19 @@ export default function App() {
       <header>
         <h1>My Tasks</h1>
         <div className="header-actions">
-          <button className="small-button" onClick={()=>{ handleLogout(), onLogout(), setPage('login')}}>Logout</button>
+          <button className="small-button" onClick={()=>{
+            handleLogout()
+            onLogout()
+            setPage('login')}}
+          >
+            Logout
+          </button>
         </div>
       </header>
       <section className="content-grid">
         <div className="panel">
           <h2>{selectedTask ? 'Edit task' : 'Add new task'}</h2>
-          <TaskForm onSave={handleSaveTask} initialTask={selectedTask} onCancel={cancelEdit} />
+          {/*<TaskForm onSave={handleSaveTask} initialTask={selectedTask} onCancel={cancelEdit} />*/}
         </div>
         <div className="panel">
           <div className="list-header">
