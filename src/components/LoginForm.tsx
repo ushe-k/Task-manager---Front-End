@@ -41,7 +41,7 @@ export default function LoginForm({  }) {
           required
         />
       </label>
-      <button className="primary" type="submit" onclick={()=>{handleSubmit}}>
+      <button className="primary" type="submit">
         {
           loading?
           (
