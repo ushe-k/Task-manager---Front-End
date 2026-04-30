@@ -4,6 +4,8 @@ import './index.css'
 import App from './App.tsx'
 import { AuthProvider } from './utils.py/AuthContext.tsx'
 import { TaskProvider } from './utils.py/TaskContext.tsx'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
