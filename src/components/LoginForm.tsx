@@ -21,10 +21,13 @@ export default function LoginForm({  }) {
         Username
         <input
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) =>
+            setUsername(e.target.value)
+            setLoading(true)
+          }
           placeholder="Enter username"
           required
-          setLoading(true)
+          
         />
       </label>
       <label>
