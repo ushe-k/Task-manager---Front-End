@@ -12,6 +12,7 @@ export default function LoginForm({  }) {
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault()
     handleLogin(username.trim(), password)
+    setLoading(true)
   }
 
   return (
@@ -23,7 +24,7 @@ export default function LoginForm({  }) {
           value={username}
           onChange={(e) =>
             setUsername(e.target.value)
-            setLoading(true)
+            
           }
           placeholder="Enter username"
           required
@@ -40,7 +41,7 @@ export default function LoginForm({  }) {
           required
         />
       </label>
-      <button className="primary" type="submit">
+      <button className="primary" type="submit" onclick={()=>{handleSubmit}}>
         {
           loading?
           (
