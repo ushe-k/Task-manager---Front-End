@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import LoginForm from './components/LoginForm'
 import RegisterForm from './components/RegisterForm'
-import TaskForm from './components/TaskForm'
+{/*import TaskForm from './components/TaskForm'*/}
 import TaskList from './components/TaskList'
 import { useAuthContext } from './utils.py/AuthContext'
 import { useTaskContext } from './utils.py/TaskContext'
@@ -11,7 +11,7 @@ import { useTaskContext } from './utils.py/TaskContext'
 export default function App() {
   const [page, setPage] = useState('login')
   const {isLoggedIn, handleLogout} = useAuthContext()
-  const {loadTasks, handleEditTask,handleSaveTask, handleDeleteTask, loading, tasks, selectedTask, onLogout, cancelEdit} = useTaskContext()
+  const {loadTasks, handleEditTask, handleDeleteTask, loading, tasks, selectedTask, onLogout, } = useTaskContext() {/* cancelEdit, handleSaveTask*/}
 
   useEffect(() => {
     if (isLoggedIn) {
