@@ -6,6 +6,7 @@ export default function LoginForm({  }) {
   const {handleLogin} = useAuthContext()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
 
 
   const handleSubmit = (e: SyntheticEvent) => {
@@ -23,6 +24,7 @@ export default function LoginForm({  }) {
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Enter username"
           required
+          setLoading(true)
         />
       </label>
       <label>
@@ -35,7 +37,19 @@ export default function LoginForm({  }) {
           required
         />
       </label>
-      <button className="primary" type="submit">Login</button>
+      <button className="primary" type="submit">
+        {
+          loading?
+          (
+          <button class="btn btn-primary" type="button" disabled>
+            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+            <span role="status">Loading...</span>
+          </button>
+          ):
+          (<p>login</p>)
+        }
+      </button>
+        
     </form>
   )
 }
